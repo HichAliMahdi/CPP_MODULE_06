@@ -6,7 +6,7 @@
 /*   By: hali-mah <hali-mah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:42:52 by hali-mah          #+#    #+#             */
-/*   Updated: 2025/07/15 13:19:49 by hali-mah         ###   ########.fr       */
+/*   Updated: 2025/07/15 13:22:10 by hali-mah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,9 @@ ScalarConverter::LiteralType ScalarConverter::detectType(const std::string& lite
     if (ss >> temp && ss.eof())
         return INT_TYPE;
     return INVALID_TYPE;
+}
+
+bool ScalarConverter::isCharDisplayable(int c)
+{
+    return (c >= 32 && c <= 126);
 }
