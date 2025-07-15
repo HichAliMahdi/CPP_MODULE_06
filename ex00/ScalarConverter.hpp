@@ -6,7 +6,7 @@
 /*   By: hali-mah <hali-mah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:32:16 by hali-mah          #+#    #+#             */
-/*   Updated: 2025/07/15 12:40:44 by hali-mah         ###   ########.fr       */
+/*   Updated: 2025/07/15 13:06:46 by hali-mah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,25 @@ class ScalarConverter
         ScalarConverter();
         ScalarConverter(const ScalarConverter&);
         ScalarConverter& operator=(const ScalarConverter&);
+        ~ScalarConverter();
+        
+        enum LiteralType 
+        {
+          CHAR_TYPE,
+          INT_TYPE,
+          FLOAT_TYPE,
+          DOUBLE_TYPE,
+          INVALID_TYPE
+        };
+        static LiteralType detectType(const std::string& literal);
+        static void convertFromChar(char c);
+        static void convertFromInt(int value);
+        static void convertFromFloat(float value);
+        static void convertFromDouble(double value);
+        static bool isCharDisplayable(int c);
+    
     public:
-        static void convert(std::string const& literal);
+        static void convert(std::string& value);
 };
 
 #endif
