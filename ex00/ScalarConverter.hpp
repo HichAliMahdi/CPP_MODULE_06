@@ -6,7 +6,7 @@
 /*   By: hali-mah <hali-mah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:32:16 by hali-mah          #+#    #+#             */
-/*   Updated: 2025/07/15 13:12:39 by hali-mah         ###   ########.fr       */
+/*   Updated: 2025/07/19 21:12:29 by hali-mah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class ScalarConverter
 {
     private:
         ScalarConverter();
-        ScalarConverter(const ScalarConverter&);
-        ScalarConverter& operator=(const ScalarConverter&);
+        ScalarConverter(const ScalarConverter& other);
+        ScalarConverter& operator=(const ScalarConverter& other);
         ~ScalarConverter();
         
         enum LiteralType 
