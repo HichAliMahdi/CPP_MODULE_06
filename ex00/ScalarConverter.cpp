@@ -6,7 +6,7 @@
 /*   By: hali-mah <hali-mah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:42:52 by hali-mah          #+#    #+#             */
-/*   Updated: 2025/07/19 21:40:47 by hali-mah         ###   ########.fr       */
+/*   Updated: 2025/07/19 21:48:54 by hali-mah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,4 +120,59 @@ void ScalarConverter::convertFromDouble(double value)
         std::cout << "double: " << (value > 0 ? "+inf" : "-inf") << std::endl;
     else
         std::cout << "double: " << std::fixed << std::setprecision(1) << value << std::endl;
+}
+
+void ScalarConverter::convert(const std::string& literal)
+{
+    LiteralType type = detectType(literal);
+    switch (type) {
+        case CHAR_TYPE: {
+            char c = literal[1];
+            convertFromChar(c);
+            break;
+        }
+        case INT_TYPE: {
+            std::stringstream ss(literal);
+            int value;
+            ss >> value;
+            convertFromInt(value);
+            break;
+        }
+        case FLOAT_TYPE: {
+            float value;
+            if (literal == "nanf") {
+                value = std::numeric_limits<float>::quiet_NaN();
+            } else if (literal == "+inff") {
+                value = std::numeric_limits<float>::infinity();
+            } else if (literal == "-inff") {
+                value = -std::numeric_limits<float>::infinity();
+            } else {
+                std::stringstream ss(literal);
+                ss >> value;
+            }
+            convertFromFloat(value);
+            break;
+        }
+        case DOUBLE_TYPE: {
+            double value;
+            if (literal == "nan") {
+                value = std::numeric_limits<double>::quiet_NaN();
+            } else if (literal == "+inf") {
+                value = std::numeric_limits<double>::infinity();
+            } else if (literal == "-inf") {
+                value = -std::numeric_limits<double>::infinity();
+            } else {
+                std::stringstream ss(literal);
+                ss >> value;
+            }
+            convertFromDouble(value);
+            break;
+        }
+        default:
+            std::cout << "char: impossible" << std::endl;
+            std::cout << "int: impossible" << std::endl;
+            std::cout << "float: impossible" << std::endl;
+            std::cout << "double: impossible" << std::endl;
+            break;
+    }
 }

@@ -6,7 +6,7 @@
 /*   By: hali-mah <hali-mah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:32:16 by hali-mah          #+#    #+#             */
-/*   Updated: 2025/07/19 21:12:29 by hali-mah         ###   ########.fr       */
+/*   Updated: 2025/07/19 21:48:47 by hali-mah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ class ScalarConverter
         static bool isCharDisplayable(int c);
     
     public:
-        static void convert(std::string& value);
+        static void convert(const std::string& literal);
 };
 
 #endif
