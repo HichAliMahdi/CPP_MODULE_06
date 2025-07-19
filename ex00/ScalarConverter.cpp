@@ -6,7 +6,7 @@
 /*   By: hali-mah <hali-mah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:42:52 by hali-mah          #+#    #+#             */
-/*   Updated: 2025/07/19 21:14:39 by hali-mah         ###   ########.fr       */
+/*   Updated: 2025/07/19 21:18:56 by hali-mah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,3 +47,15 @@ void ScalarConverter::convertFromChar(char c)
     std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(c) << std::endl;
 }
 
+void ScalarConverter::convertFromInt(int value)
+{
+    if (value < std::numeric_limits<char>::min() || value > std::numeric_limits<char>::max())
+        std::cout << "char: impossible" << std::endl;
+    else if (!isCharDisplayable(value))
+        std::cout << "char: Non displayable" << std::endl;
+    else
+        std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
+    std::cout << "int: " << value << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f" << std::endl;
+    std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(value) << std::endl;
+}
