@@ -1,7 +1,7 @@
 NAME = converter
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++17
 
 SRCDIR = .
 OBJDIR = obj

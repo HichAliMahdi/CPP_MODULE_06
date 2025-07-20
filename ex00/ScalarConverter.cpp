@@ -6,11 +6,14 @@
 /*   By: hali-mah <hali-mah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:42:52 by hali-mah          #+#    #+#             */
-/*   Updated: 2025/07/19 22:00:43 by hali-mah         ###   ########.fr       */
+/*   Updated: 2025/07/20 15:21:30 by hali-mah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+
+ScalarConverter::ScalarConverter() {};
+ScalarConverter::~ScalarConverter() {}
 
 ScalarConverter::LiteralType ScalarConverter::detectType(const std::string& literal) {
     if (literal.length() == 1) {
